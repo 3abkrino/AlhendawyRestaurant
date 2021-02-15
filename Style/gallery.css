@@ -13,7 +13,7 @@
   .Gallery_Design {
       width: 20vw;
       height: 50vh;
-      background-image: url(/Images/unnamed1.jpg);
+      background-image: url(../Images/unnamed1.jpg);
       background-position: center;
       background-size: cover;
       margin-left: 30px;

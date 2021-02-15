@@ -63,7 +63,7 @@
             console.log("Decribe = "+Desc +" Image = "+img);
             var GalleryDesign = document.createElement("div");
             GalleryDesign.classList.add("Gallery_Design");
-            GalleryDesign.style.backgroundImage = "url(/Images/"+img+")";
+            GalleryDesign.style.backgroundImage = "url(Images/"+img+")";
 
             var GalleryButton = document.createElement("div");
             GalleryButton.classList.add("Gallery_Button");
