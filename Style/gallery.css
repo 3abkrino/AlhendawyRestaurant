@@ -16,9 +16,10 @@
       background-image: url(../Images/unnamed1.jpg);
       background-position: center;
       background-size: cover;
-      margin-left: 30px;
+      margin-left: 25px;
       margin-right: 30px;
       margin-bottom: 51px;
+      margin-top: 3px;
       box-shadow: 0 50px 23px 15px rgba(0, 0, 0, 0.2);
       border-radius: 10%;
       display: flex;
@@ -75,4 +76,95 @@
 
   button {
       cursor: pointer;
+  }
+
+
+  /*FROM HERE FORE GALLERY HEADER*/
+
+  @keyframes ChanagHeaderImg {
+
+      0% {
+          background-image: url(../Images/restaurant.jpg);
+      }
+
+      20% {
+          background-image: url(../Images/Rest2.JPG);
+      }
+
+      50% {
+          background-image: url(../Images/Res3.jpg);
+      }
+
+      75% {
+          background-image: url(../Images/Res4.jpg);
+      }
+
+      100% {
+          background-image: url(../Images/Res5.jpeg.);
+      }
+  }
+
+
+
+  .headerImage {
+      width: 93vw;
+      height: 70vh;
+
+      top: 0;
+      background-image: url(../Images/restaurant.jpg);
+      background-position: center;
+      background-size: cover;
+      
+      animation: ChanagHeaderImg;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      
+      border-radius: 2%;
+
+  }
+
+  .headerList {
+      width: 93vw;
+      height: 20vh;
+      position: relative;
+      top: 5%;
+      right: 1%;
+      color: white;
+      z-index: 999;
+
+  }
+
+  .HeaderItem {
+      list-style: none;
+      border: 2px solid white;
+  }
+
+  .List {
+      display: flex;
+      border: 2px solid white;
+      align-items: center;
+      background: black;
+      opacity: 0.5;
+      top: 0;
+
+  }
+
+  .HeaderLink {
+      text-decoration: none;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.25rem;
+  }
+
+  #CompanyName {
+      text-align: right;
+      width: 50rem;
+      height: 3.5rem;
+      text-align: left;
+      font-family: Brush Script MT, Brush Script Std, cursive;
+      font-size: 2rem;
+      border: 2px solid white;
   }
