@@ -84,23 +84,23 @@
   @keyframes ChanagHeaderImg {
 
       0% {
-          background-image: url(../Images/restaurant.jpg);
+          background-image: url(../Images/AR1.jpg);
       }
 
       20% {
-          background-image: url(../Images/Rest2.JPG);
+          background-image: url(../Images/AR2.jpeg);
       }
 
       50% {
-          background-image: url(../Images/Res3.jpg);
+          background-image: url(../Images/AR3.jpg);
       }
 
       75% {
-          background-image: url(../Images/Res4.jpg);
+          background-image: url(../Images/AR4.jpg);
       }
 
       100% {
-          background-image: url(../Images/Res5.jpeg.);
+          background-image: url(../Images/AR5t.jpg);
       }
   }
 
@@ -109,17 +109,13 @@
   .headerImage {
       width: 93vw;
       height: 70vh;
-
       top: 0;
-      background-image: url(../Images/restaurant.jpg);
       background-position: center;
       background-size: cover;
-      
       animation: ChanagHeaderImg;
-      animation-duration: 10s;
+      animation-duration: 13s;
       animation-iteration-count: infinite;
       animation-direction: alternate;
-      
       border-radius: 2%;
 
   }
