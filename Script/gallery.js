@@ -1,4 +1,6 @@
  window.addEventListener("load", function () {
+   var contact=document.getElementById("contact");
+   contact=window.addEventListener("click",function(){window.open("contactus.html","_self", "Contact Us")});
 
      var Order = [{
          Name: "Steak",

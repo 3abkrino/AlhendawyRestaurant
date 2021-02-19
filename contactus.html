@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.addEventListener('load',function(){
+             username=document.getElementById('username');
+             useremail=document.getElementById('email');
+             submit=document.getElementById("submit_btn");
+
+            submit.addEventListener('click',function(e){
+                if(!isUserNameValid()){
+                    alert("please Enter valid user name");
+                    // e.preventDefault();
+                    return 0;
+                }
+                    if (!isUserEmailValid()){
+                    alert("please Enter valid email");
+                    return 0;
+                }  
+                    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+                    myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");                
+            });
+
+        })
+        function isUserNameValid(){
+            var usernamepattern=/[A-Za-z]{4,8}/;
+            return username.value.match(usernamepattern);
+        };
+        function isUserEmailValid(){
+            var useremailpattern=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+            return useremail.value.match(useremailpattern);
+        };
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #cfcbcb;
+            }
+        .form_container{
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            width: 100%;           
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .form{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        input[type=submit] {
+            background: -webkit-linear-gradient( top left, #4aa14d, #7bdd7f);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+            input[type=submit]:hover{
+            background: -webkit-linear-gradient( top left,  rgb(31, 134, 202) ,rgb(136, 178, 206));
+
+            }
+        input[type=text], textarea {
+                 width: 100%;
+                 padding: 12px;
+                 border: 1px solid rgb(199, 197, 197);
+                 border-radius: 4px;
+                 box-sizing: border-box;
+                 resize: vertical;
+             }
+             input[type=text]:focus, textarea:focus {
+                 box-shadow: #9bd8eb 2px 2px 20px;
+             }
+    </style>
+</head>
+<body>
+    <div class="form_container">
+        <h1 style="font: italic  bold 25px/40px Georgia, Verdana ; color:rgb(51, 93, 207);"> Contact Us </h1><br>
+    <form action="" class="form">
+        <label for="name"><p>Name</p></label>
+        <input type="text" id="username" placeholder="Enter your full name..."/><br><br>
+
+        <label for="email"><p>E-mail</p></label>
+        <input type="text" id="email" placeholder="Enter your Email.."/><br><br>
+
+        <label for="subject"><P>Subject</P></label>
+        <textarea id="subject" name="subject" placeholder="Enter your message...!" style="height: 10rem;"></textarea><br><br>
+
+    </form>
+    <input type="submit" id="submit_btn" value="Send"/>
+</div>
+</body>
+</html>
