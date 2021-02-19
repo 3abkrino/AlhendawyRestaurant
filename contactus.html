@@ -6,8 +6,6 @@
     <title></title>
     <script>
         window.addEventListener('load',function(){
-             username=document.getElementById('username');
-             useremail=document.getElementById('email');
              // putting hands on anchor tag to listen
              anchor=document.querySelector("a");
             // adding event listener to anchor
@@ -35,11 +33,13 @@
         };
        // Validate the username 
         function isUserNameValid(){
+            username=document.getElementById('username');
             var usernamepattern=/^[a-zA-Z]{2,}\d*$/i;
             return username.value.match(usernamepattern);
         };
         //validate the Email 
         function isUserEmailValid(){
+            useremail=document.getElementById('email');
             var useremailpattern=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
             return useremail.value.match(useremailpattern);
         };
@@ -59,7 +59,7 @@
         <textarea class="mailtext" id="subject" name="subject" placeholder="Enter your message...!" style="height: 10rem;"></textarea><br><br>
 
         <!-- <input type="submit" id="submit_btn" value="Send"/> -->
-        <a href="mailto:gem3a.ag@gmail.com?subject= Testing out mailto!&body=This is only a test!">Send</a>
+        <a href="">Send</a>
     </form>
 </div>
 </body>
