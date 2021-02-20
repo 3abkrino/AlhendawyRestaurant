@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style/contactus.css">
+    <title></title>
+    
+</head>
+<body>
+    <div class="form_container">
+        <h1 style="font: italic  bold 25px/40px Georgia, Verdana ; color:rgb(51, 93, 207);"> Contact Us </h1><br>
+    <form action="" method="POST" enctype="text/plain" class="form">
+        <label for="name"><p>Name</p></label>
+        <input class="mailtext" type="text" id="username" placeholder="Enter your full name..."/><br><br>
+
+        <label for="email"><p>E-mail</p></label>
+        <!-- <input class="mailtext" type="email" id="email" placeholder="Enter your Email.." required/><br><br> -->
+        <input class="mailtext" type="text" id="email" placeholder="Enter your Email.."/><br><br>
+
+
+        <label for="subject"><P>Subject</P></label>
+        <textarea class="mailtext" id="subject" name="subject" placeholder="Enter your message...!" style="height: 10rem;"></textarea><br><br>
+
+        <!-- <input type="submit" value="submit"/> -->
+
+        <a href="">Send</a>
+    </form>
+</div>
+</body>
+<script>
+    // putting hands on anchor tag to listen
+    anchor=document.querySelector("a");
+   // adding event listener to anchor
+   anchor.addEventListener('click',function(e){
+       //checking if the user inserted valid username or not
+      if(!isUserNameValid()){
+           alert("please Enter valid user name");
+           e.preventDefault();
+       }else if (!isUserEmailValid()){
+           alert("please Enter valid email");
+           e.preventDefault();
+       }  else {sendmail();}
+                      
+   }); // end of anchor listening event
+
+function sendmail(){
+   // Getting the userData from the textboxs 
+       userData=document.querySelectorAll(".mailtext");
+        username=userData[0].value;
+        useremail=userData[1].value;
+        subject=userData[2].value;
+       anchor.href="mailto:gem3a.ag@gmail.com?subject= "+subject+"&body=This is message from : "+username+"";
+};
+// Validate the username 
+function isUserNameValid(){
+   username=document.getElementById('username');
+   var usernamepattern=/^[a-zA-Z]{2,}\d*$/i;
+   return username.value.match(usernamepattern);
+};
+// validate the Email 
+function isUserEmailValid(){
+    useremail=document.getElementById('email');
+    var useremailpattern=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    return useremail.value.match(useremailpattern);
+};
+</script>
+</html>
