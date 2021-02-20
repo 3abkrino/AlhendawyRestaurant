@@ -1,6 +1,11 @@
  window.addEventListener("load", function () {
+<<<<<<< Updated upstream
 
      Order = [{
+=======
+    
+     var Order = [{
+>>>>>>> Stashed changes
          Name: "Steak",
          Describe: "Steak Beefy's by Sir Ian Botham",
          Salary: 30,
