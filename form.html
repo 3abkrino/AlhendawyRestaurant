@@ -3,55 +3,68 @@
 <head>
 	<title>Register form</title>
 <link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Register</h1>
-<form>
+	<div class="container">
+	<div class="row">
+	<div class="col-md-5 register-left">
+		
+<h1>Join Us</h1>
+<button class="btn btn-primary">About us</button>
+<br>
+<button class="btn btn-primary">Contact us</button>
+</div>
+
+<form class="col-md-7 register-right"> 
+	<h2>Register Here</h2>
+	<div class="register-form">
 	<label> First Name:
-	<input id="first" type="text" placeholder="Mohamed" required >
+	<input  id="first" type="text" placeholder="Mohamed" required >
 	</label>
 	<label>Last Name:
-	<input id="last" type="text" placeholder="Elahl" required >
+	<input  id="last" type="text" placeholder="Elahl" required >
 	</label>
 	
 <br>
 <br>
 <div>
 	<label>Male
-	<input type="radio" name="gender">
+	<input  type="radio" name="gender">
 	</label>
 	<label>Female
-	<input type="radio" name="gender">
+	<input  type="radio" name="gender">
 	</label>
 	<label>other
-	<input type="radio" name="gender">
+	<input  type="radio" name="gender">
 	</label>
 </div>
 <br>
 <div>
 	<label>Email:
-	<input type="email" placeholder="your email" required>
+	<input  type="email" placeholder="your email" required>
 	</label>
 	<label>Password:
-	<input type="Password" minlength="6" placeholder="your Password" required> </label>
+	<input  type="Password" minlength="6" placeholder="your Password" required> </label>
 </div>
 <br>
 <div>
 	
 	<label for="birthday">Birthday:</label>
-	<input type="date" id="birthday" name="birthday">
+	<input  type="date" id="birthday" name="birthday">
 	
 </div>
 	<br>
 	<div>
 	I agree to the terms and conditions
-	<input type="checkbox">
+	<input  type="checkbox">
 	</div>
      <br>
-	<button>submit</button>
-
+	<button class="btn btn-primary">submit</button>
+</div>
 </form>
-	
+	</div>
+	</div>
 
 </body>
 </html>
