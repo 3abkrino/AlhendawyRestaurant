@@ -1,67 +1,76 @@
  window.addEventListener("load", function () {
-    
-      Order = [{
+
+     Order = [{
          Name: "Steak",
          Describe: "Steak Beefy's by Sir Ian Botham",
-         Salary: 30,
+         Price: 30,
          Image: "calamari_appetizer_delicious.jpg"
             }, {
          Name: "Noodles",
          Describe: "Veg Hakka Noodles",
-         Salary: 10,
+         Price: 10,
          Image: "food-gallery-steak.jpg"
             }, {
          Name: "Sandwich",
          Describe: "Corn Paneer Sandwich",
-         Salary: 40,
+         Price: 40,
          Image: "IMGP3166.jpg"
             }, {
          Name: "Pasta",
          Describe: "Red Sauce Pasta",
-         Salary: 80,
+         Price: 80,
          Image: "unnamed3.jpg"
             }, {
          Name: "Pasta",
          Describe: "White Sauce Pasta",
-         Salary: 90,
+         Price: 90,
          Image: "unnamed1.jpg"
             }, {
          Name: "Steak",
          Describe: "Bun and Grain Shack",
-         Salary: 100,
+         Price: 100,
          Image: "unnamed2.jpg"
             }, {
          Name: "Steak",
          Describe: "Steak Beefy's ",
-         Salary: 130,
+         Price: 130,
          Image: "b4.jpg"
             }, {
          Name: "Steak",
          Describe: "Red Sauce Pasta",
-         Salary: 300,
+         Price: 300,
          Image: "images5.jpeg"
             }, {
          Name: "Steak",
          Describe: "Red Sauce Pasta",
-         Salary: 340,
+         Price: 340,
          Image: "unnamed2.jpg"
             }];
-     
+     UserLocation="";
      // called method to create product templets
      addItem();
      // add event Listener to all button GETORDER
      var getOrderButtons = document.getElementsByClassName("viewbutton");
      ActionGetOrderButton(getOrderButtons);
      // to close page from          X
-     var closebutton = document.getElementById("close");
+     closebutton = document.getElementById("close");
      ClosePage(closebutton);
      // to show map to choise location to deliver order
      var LocButton = document.getElementById("SendOrderPageChoiseLoc");
-     /*GetUserLocation(LocButton);*/
+     GetUserLocation(LocButton);
+
+
+
+
+
+
+
      // to Buy order Button
      var buyButton = document.getElementById("SendOrderPage_buy");
-     /*BuyOrder_SendMail(buyButton);*/
+     BuyOrder_SendMail(buyButton);
+
  });
+
  function addItem() {
      for (var x = 0; x < Order.length; x++) {
          console.log("Decribe = " + Order[x].Describe + " Image = " + Order[x].Image);
@@ -90,37 +99,158 @@
      }
      /*console.log(AllView);*/
  }
-function ActionGetOrderButton(OrderButtonsArray) {
+
+ function ActionGetOrderButton(OrderButtonsArray) {
      for (var x = 0; x < OrderButtonsArray.length; x++) {
          OrderButtonsArray[x].addEventListener("click", function (obj) {
              console.log(obj.target.value);
              // this to show popup windwo
              model = document.getElementById("SendOrdermodel");
              model.style.display = "block";
-             var buttonId = obj.target.value.charAt(obj.target.value.length - 1);
+             buttonId = obj.target.value.charAt(obj.target.value.length - 1);
              console.log("ID " + buttonId);
              console.log(" Image" + Order[buttonId].Image);
-             console.log(" Salary" + Order[buttonId].Salary);
+             console.log(" Price" + Order[buttonId].Price);
              console.log(" Desc" + Order[buttonId].Describe);
-             
+
              var img = Order[buttonId].Image;
-             var sala = Order[buttonId].Salary;
+             var pric = Order[buttonId].Price;
              var Desc = Order[buttonId].Describe;
 
              document.getElementById("OrderImage").style.backgroundImage = "";
              document.getElementById("Ordersalary").innerText = "";
              document.getElementById("OrderDesc").innerText = "";
 
-             document.getElementById("OrderImage").style.backgroundImage = "url(Images/"+img+")";
-             document.getElementById("Ordersalary").innerText = "Price " + sala + "$";
-             document.getElementById("OrderDesc").innerText = "Description " + Desc;
+             document.getElementById("OrderImage").style.backgroundImage = "url(Images/" + img + ")";
+             document.getElementById("Ordersalary").innerText = "Price :" + pric + "$";
+             document.getElementById("OrderDesc").innerText = "Description :" + Desc;
 
          });
      }
  }
+
  function ClosePage(clobutto) {
      console.log("clobutto" + clobutto);
      clobutto.addEventListener("click", function (obj) {
+        model.style.display = "none";
+     });
+ }
+
+ function GetUserLocation(Loc) {
+     Loc.addEventListener("click", function () {
+         mapPageModel = document.getElementById("mapPage");
          model.style.display = "none";
+         mapPageModel.style.display = "block";
+
+         //1- check availability of geolocation inside user browser (navigator)
+         if (navigator.geolocation) {
+             navigator.geolocation.getCurrentPosition(getposition, errorhandeler)
+         } else {
+             alert("YOUR BROWSER NOT SUPPORT GEOLOCATION")
+         }
+
+     });
+
+     /*this DONE button */
+     var CancelMap = document.getElementById("CancelMapPage");
+     CancelMap.addEventListener("click", function () {
+         mapPageModel.style.display = "none";
+         model.style.display = "block";
+         /*console.log("User Location" + UserLocation);*/
+     });
+ }
+
+ function getposition(position) {
+     // latitude , longitude , timestamp
+     //console.log(arguments[0]);
+     var lat = position.coords.latitude;
+     var lng = position.coords.longitude;
+
+     initMap(lat, lng);
+
+ }
+
+ function errorhandeler(error) {
+     alert("error");
+     switch (error.code) {
+         case error.PERMISSION_DENIED:
+             mymap.innerText = "you refused Request !... ";
+             break;
+         case error.POSITION_UNAVAILABLE:
+             mymap.innerText = "POSITION_UNAVAILABLE";
+             break;
+         case error.TIMEOUT:
+             mymap.innerText = "TIMEOUT";
+             break;
+         case error.UNKOWN_ERROR:
+             mymap.innerText = "UNKOWN_ERROR";
+             break;
+         default:
+     }
+ }
+
+ function initMap(la, ln) {
+     const myLatLng = {
+         lat: la,
+         lng: ln
+     };
+     const map = new google.maps.Map(document.getElementById("map"), {
+         zoom: 17,
+         center: myLatLng,
+     });
+     var marker;
+
+     google.maps.event.addListener(map, 'click', function (event) {
+         if (marker) {
+             marker.setPosition(event.latLng);
+         } else {
+             marker = new google.maps.Marker({
+                 position: event.latLng,
+                 map: map
+             });
+         }
+         UserLocation = event.latLng;
+     });
+ }
+
+ function BuyOrder_SendMail(buy) {
+     buy.addEventListener("click", function () {
+         /*console.log("UserLocation "+UserLocation)*/
+
+         var CountValue = document.getElementById("OrderCount").value;
+         if ((parseInt(CountValue) > 0) && (parseInt(CountValue) < 10)) {
+             
+             if(UserLocation){
+                 var name = "Kareem";
+                 var mail ="MomenZakaria1997@gmail.com"
+                 var pass ="MOMEN@@2021"
+                 var Address = "Assuit";
+                 var PhoneNumber ="0100000000"
+                 var Loc =UserLocation ;
+                 var ordercontain ="Name of Order :"+Order[buttonId].Name+" , price :" + Order[buttonId].Price+" , Count :"+parseInt(CountValue) +" , Total Price :" + Order[buttonId].Price*parseInt(CountValue) ;
+                 console.log(ordercontain);
+                 model.style.display = "none";
+                 Email.send({ 
+                    Host: "smtp.gmail.com", 
+                    Username: mail, 
+                    Password: pass, 
+                    To: 'momenalhendawy@gmail.com', 
+                    From: mail, 
+                    Subject: "Buy Request from "+name, 
+                    Body: "My Address is :"+Address+" , My Location :"+Loc+"  , My Mail :"+mail+
+                           " , My Phone Number : "+PhoneNumber+ " , My Order [ "+ordercontain+" ]" , 
+                  }) 
+                    .then(function (message) { 
+                      alert("mail sent successfully") 
+                    }); 
+             }else{
+                 alert("MUST CHOOSE LOCATION")
+             }
+         } else {
+             var CountInvalidMessage = document.getElementById("OrderCount");
+             CountInvalidMessage.setCustomValidity(" ONLY BETWEEN 1 AND 10 ");
+             CountInvalidMessage.reportValidity();
+         }
+
      });
  }
