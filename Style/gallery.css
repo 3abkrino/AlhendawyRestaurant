@@ -179,7 +179,6 @@
   }
 
 
-
   .SendOrderPage {
       background: #D9DBFB;
       margin: 0;
@@ -189,6 +188,7 @@
       height: 70%;
       animation-name: animatetop;
       animation-duration: 1s;
+      border-radius: 20%;
 
   }
 
