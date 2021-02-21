@@ -4,31 +4,20 @@ body {
     margin-top: 150px !important;
 
 }
+.container
+{
+    display: grid;
+    grid-template-columns: auto auto ;
+}
 
 .register-left
 {
       text-align: center;
       color: #fff;
       padding: 30px;
-
+      
 }
 
-
-.register-left .btn-primary
-{
-   border-radius: 1.5rem;
-   border: none;
-   width: 120px;
-   background-color: #f8f8f8 ;
-   font-weight: 600;
-   color: #555 ;
-   margin-top: 20px;
-   padding: 10px;
-}
-.register-left .btn-primary:hover
-{
-  background: #000;
-}
 .register-right
 {
   border: none;
@@ -36,7 +25,7 @@ body {
    border-top-left-radius: 10% 50%; 
    border-bottom-left-radius: 10% 50%;
    padding: 50px;
-   flex: right;  
+   margin-right: 100px;
 }
 .register-right h2
 {
@@ -48,7 +37,7 @@ body {
 {
    padding: 30px;
 }
-.register-right .btn-primary
+.register-right .btn
 {
    float: right;
    border-radius: 1.5rem;
@@ -60,7 +49,7 @@ body {
    margin-top: 20px;
    padding: 10px;
 }
-.register-right .btn-primary:hover
+.register-right .btn:hover
 {
   background: #ff5722;
 }
