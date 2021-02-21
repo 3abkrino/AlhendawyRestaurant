@@ -32,7 +32,11 @@ function purchaseClicked() {
 
 function removeCartItem(event) {
     var buttonClicked = event.target
+    var title = buttonClicked.parentElement.parentElement.getElementsByClassName('cart-item-title')[0].innerText
     buttonClicked.parentElement.parentElement.remove()
+    //itemnameremoved=
+    //alert(title);
+    removefromstorage(title);
     updateCartTotal()
 }
 
@@ -46,7 +50,7 @@ function quantityChanged(event) {
         input.value = 1
     }
     //localStorage.setItem("mahmoud", title+imageSrc+price+ input.value);
-    localStorage.setItem("mahmoud", title+" "+price+" "+imageSrc+" "+ input.value);
+    saveiteminstorage(title,price,input.value);
     updateCartTotal()
 }
 
@@ -71,6 +75,7 @@ function addItemToCart(title, price, imageSrc) {
             alert('This item is already added to the cart if you want to increase the quantity use the number input below')
             return
         }
+
     }
     var cartRowContents = `
         <div class="cart-item cart-column">
@@ -86,7 +91,8 @@ function addItemToCart(title, price, imageSrc) {
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
-    localStorage.setItem("mahmoud", title+" "+price+" "+imageSrc+" "+ itemquantity);
+    //localStorage.setItem("mahmoud", title+" "+price+" "+ itemquantity);
+    saveiteminstorage(title,price,1)
 }
 
 function updateCartTotal() {
@@ -106,4 +112,46 @@ function updateCartTotal() {
     //alert(quantity)
     // localStorage.setItem("mahmoud", title+" "+price+" "+imageSrc+" "+ quantity)
     
+}
+
+function saveiteminstorage(title1,price1,quantity1){
+    if(localStorage.getItem('loggedUser')== null){
+        localStorage.setItem('loggedUser','[]');
+        //alert('nullll')
+    }
+    if(localStorage.getItem('loggedUser')!= null )
+    {
+        //alert('not null')
+        var val = JSON.parse(localStorage.getItem('loggedUser'))
+        for (let index = 0; index < val.length; index++) {
+            if(title1 == val[index]){
+                val[index+2]=quantity1;
+                localStorage.setItem('loggedUser', JSON.stringify(val));
+                return
+                //alert('thisitem is duplicated');
+            }
+        }
+        val.push(title1);
+        val.push(price1);
+        val.push(quantity1);
+        // localStorage.setItem(localStorage.getItem('loggedUser'),
+        //  title1+" "+price1+" "+ quantity1);
+        // localStorage.setItem("mahmoud", title+" "+price+" "+ input.value);
+        localStorage.setItem('loggedUser', JSON.stringify(val));
+
+    }else{
+        alert('please login first')//for development
+    }
+}
+function removefromstorage(title){
+    var val = JSON.parse(localStorage.getItem('loggedUser'))
+    //alert(val)
+    for (let index = 0; index < val.length; index++) {
+        if (title==val[index]) {
+            val.splice(index,3);
+        }
+        
+    }
+    //alert(val)
+    localStorage.setItem('loggedUser', JSON.stringify(val));
 }
