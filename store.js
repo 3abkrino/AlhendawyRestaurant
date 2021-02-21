@@ -38,14 +38,15 @@ function removeCartItem(event) {
 
 function quantityChanged(event) {
     var input = event.target
-    var shopItem = input.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    var shopItem = input.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('cart-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('cart-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('cart-item-image')[0].src
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
     }
-    localStorage.setItem("mahmoud", title+price+ input.value);
+    //localStorage.setItem("mahmoud", title+imageSrc+price+ input.value);
+    localStorage.setItem("mahmoud", title+" "+price+" "+imageSrc+" "+ input.value);
     updateCartTotal()
 }
 
