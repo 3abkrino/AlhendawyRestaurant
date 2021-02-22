@@ -122,10 +122,10 @@
              document.getElementById("Ordersalary").innerText = "Price :" + pric + "$";
              document.getElementById("OrderDesc").innerText = "Description :" + Desc;
              
-             var getcount = JSON.parse(localStorage.getItem("mahmoud"));
+           /*  var getcount = JSON.parse(localStorage.getItem("mahmoud"));
              var nameindex = getcount.indexOf(Order[buttonId].Name);
             console.log(" COUBT      "+getcount+"mmmmmmmm "+getcount[(parseInt(nameindex) + 2)]);
-             document.getElementById("OrderCount").value =getcount[(parseInt(nameindex) + 2)];
+             document.getElementById("OrderCount").value =getcount[(parseInt(nameindex) + 2)];*/
              
              
 
@@ -225,9 +225,15 @@
              if (UserLocation) {
                  var tolocStor = [];
                  var na = Order[buttonId].Name;
-                 var pri = Order[buttonId].Price;
-                 var cou = parseInt(CountValue);
-                 var usercart = JSON.parse(localStorage.getItem("mahmoud"));
+                 var pri = "$"+Order[buttonId].Price;
+                 var cou = CountValue;
+                 if("loggedUser" in localStorage){ 
+                     user = localStorage.getItem("loggedUser");
+                 }else{
+                     localStorage.setItem("loggedUser",JSON.stringify(null));
+                 }
+                                 
+                 var usercart = JSON.parse(localStorage.getItem(user));
                  if (usercart) {
                      var exist = usercart.includes(Order[buttonId].Name)
                      console.log("EXIST " + exist);
@@ -238,7 +244,7 @@
                              var itemName = usercart.indexOf(Order[buttonId].Name);
                              console.log("index of " + Order[buttonId].Name + "=" + itemName)
                              usercart[(parseInt(itemName) + 2)] = parseInt(CountValue);
-                             localStorage.setItem("mahmoud", JSON.stringify(usercart))
+                             localStorage.setItem(user, JSON.stringify(usercart))
                              
                          } else {
                              model.style.display = "none";
@@ -247,17 +253,17 @@
                          usercart.push(na);
                          usercart.push(pri);
                          usercart.push(cou);
-                         localStorage.setItem("mahmoud", JSON.stringify(usercart));
+                         localStorage.setItem(user, JSON.stringify(usercart));
                      }
                  } else {
                      tolocStor.push(na);
                      tolocStor.push(pri);
                      tolocStor.push(cou);
-                     localStorage.setItem("mahmoud", JSON.stringify(tolocStor));
+                     localStorage.setItem(user, JSON.stringify(tolocStor));
                  }
 
-                 
-                 model.style.display = "none";
+                  window.location.replace("./form3.html");
+                    model.style.display = "none";
 
                  /* var name = "Kareem";
                   var mail = "MomenZakaria1997@gmail.com"
