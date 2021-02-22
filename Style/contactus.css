@@ -52,3 +52,9 @@ input[type=text], textarea {
      input[type=text]:focus, textarea:focus {
          box-shadow: #9bd8eb 2px 2px 20px;
      }
+     .footer{
+        color: #444444;
+        font-weight: 500;
+        text-align: center;
+        font-size: 1.3em;
+    }
