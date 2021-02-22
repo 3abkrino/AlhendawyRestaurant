@@ -1,6 +1,7 @@
-  * {
+  *{
       padding: 0;
       margin: 15;
+      box-sizing: border-box;
       user-select: none;
   }
 
@@ -103,10 +104,16 @@
       }
   }
 
+  .headerPage {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
   .headerImage {
       width: 93vw;
       height: 70vh;
-      top: 0;
       background-position: center;
       background-size: cover;
       animation: ChanagHeaderImg;
@@ -114,49 +121,50 @@
       animation-iteration-count: infinite;
       animation-direction: alternate;
       border-radius: 2%;
-
   }
 
   .headerList {
-      width: 93vw;
-      height: 20vh;
-      position: relative;
-      top: 5%;
-      right: 1%;
+      width: 95%;
+      height: 15%;
       color: white;
+      margin-top: 50px;
+      margin-left: 2.5%;
 
+  }
+
+
+
+  .List {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid white;
   }
 
   .HeaderItem {
+      height: 80%;
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       list-style: none;
       border: 2px solid white;
-  }
-
-  .List {
-      display: flex;
-      border: 2px solid white;
-      align-items: center;
-      background: black;
-      opacity: 0.5;
-      top: 0;
-
+      font-size: 1rem;
   }
 
   .HeaderLink {
       text-decoration: none;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.25rem;
+
+
   }
 
   #CompanyName {
-      text-align: right;
-      width: 50rem;
-      height: 3.5rem;
+      width: 40%;
       text-align: left;
-      font-family:  cursive;
+      font-family: cursive;
       font-size: 2rem;
       border: 2px solid white;
   }
@@ -179,6 +187,7 @@
   }
 
 
+
   .SendOrderPage {
       background: #D9DBFB;
       margin: 0;
@@ -188,8 +197,8 @@
       height: 70%;
       animation-name: animatetop;
       animation-duration: 1s;
-      border-radius: 20%; 
-        
+      border-radius: 20%;
+
   }
 
   @keyframes animatetop {
@@ -215,7 +224,7 @@
   }
 
   #Company {
-      font-family:  cursive;
+      font-family: cursive;
       font-size: 1.5rem;
       margin: 0;
   }
@@ -279,7 +288,7 @@
       padding-right: 2rem;
       border-radius: 5px;
       background: #626485;
-      font-family:  cursive;
+      font-family: cursive;
   }
 
   #SendOrderPageChoiseLoc:active {
@@ -301,4 +310,51 @@
       background: linear-gradient(#535EDC, #e66465);
       position: relative;
       top: 5px;
+  }
+
+  /*this for UserLocation  in Send order Page*/
+  #mapPage {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      padding-top: 120px;
+      /*Location of the box */
+      padding-left: 350px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+  }
+
+
+
+  #mapContainer {
+      background: #D9DBFB;
+      margin: 0;
+      box-shadow: 0 50px 23px 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+      width: 50%;
+      height: 70%;
+      border: 2px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #map {
+      width: 95%;
+      height: 100%;
+      border: 2px solid black;
+  }
+
+  #CancelMapPage {
+      border: none;
+      padding-top: 0.75rem;
+      padding-left: 2rem;
+      padding-bottom: 0.75rem;
+      padding-right: 2rem;
+      border-radius: 5px;
+      background: #626485;
+      font-family: cursive;
+      margin-top: 10px;
   }

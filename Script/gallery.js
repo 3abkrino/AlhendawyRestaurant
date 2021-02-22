@@ -46,7 +46,7 @@
          Price: 340,
          Image: "unnamed2.jpg"
             }];
-     UserLocation="";
+     UserLocation = "";
      // called method to create product templets
      addItem();
      // add event Listener to all button GETORDER
@@ -58,10 +58,6 @@
      // to show map to choise location to deliver order
      var LocButton = document.getElementById("SendOrderPageChoiseLoc");
      GetUserLocation(LocButton);
-
-
-
-
 
 
 
@@ -120,10 +116,18 @@
              document.getElementById("OrderImage").style.backgroundImage = "";
              document.getElementById("Ordersalary").innerText = "";
              document.getElementById("OrderDesc").innerText = "";
-
+             document.getElementById("OrderCount").innerText="";
+             
              document.getElementById("OrderImage").style.backgroundImage = "url(Images/" + img + ")";
              document.getElementById("Ordersalary").innerText = "Price :" + pric + "$";
              document.getElementById("OrderDesc").innerText = "Description :" + Desc;
+             
+             var getcount = JSON.parse(localStorage.getItem("mahmoud"));
+             var nameindex = getcount.indexOf(Order[buttonId].Name);
+            console.log(" COUBT      "+getcount+"mmmmmmmm "+getcount[(parseInt(nameindex) + 2)]);
+             document.getElementById("OrderCount").value =getcount[(parseInt(nameindex) + 2)];
+             
+             
 
          });
      }
@@ -132,7 +136,7 @@
  function ClosePage(clobutto) {
      console.log("clobutto" + clobutto);
      clobutto.addEventListener("click", function (obj) {
-        model.style.display = "none";
+         model.style.display = "none";
      });
  }
 
@@ -148,9 +152,7 @@
          } else {
              alert("YOUR BROWSER NOT SUPPORT GEOLOCATION")
          }
-
      });
-
      /*this DONE button */
      var CancelMap = document.getElementById("CancelMapPage");
      CancelMap.addEventListener("click", function () {
@@ -219,31 +221,67 @@
 
          var CountValue = document.getElementById("OrderCount").value;
          if ((parseInt(CountValue) > 0) && (parseInt(CountValue) < 10)) {
-             
-             if(UserLocation){
-                 var name = "Kareem";
-                 var mail ="MomenZakaria1997@gmail.com"
-                 var pass ="MOMEN@@2021"
-                 var Address = "Assuit";
-                 var PhoneNumber ="0100000000"
-                 var Loc =UserLocation ;
-                 var ordercontain ="Name of Order :"+Order[buttonId].Name+" , price :" + Order[buttonId].Price+" , Count :"+parseInt(CountValue) +" , Total Price :" + Order[buttonId].Price*parseInt(CountValue) ;
-                 console.log(ordercontain);
+
+             if (UserLocation) {
+                 var tolocStor = [];
+                 var na = Order[buttonId].Name;
+                 var pri = Order[buttonId].Price;
+                 var cou = parseInt(CountValue);
+                 var usercart = JSON.parse(localStorage.getItem("mahmoud"));
+                 if (usercart) {
+                     var exist = usercart.includes(Order[buttonId].Name)
+                     console.log("EXIST " + exist);
+                     if (exist) {
+                         var stat = confirm("YOU WANT TO UPDATE ORDER");
+                         if (stat) {
+                             console.log("cart " + usercart)
+                             var itemName = usercart.indexOf(Order[buttonId].Name);
+                             console.log("index of " + Order[buttonId].Name + "=" + itemName)
+                             usercart[(parseInt(itemName) + 2)] = parseInt(CountValue);
+                             localStorage.setItem("mahmoud", JSON.stringify(usercart))
+                             
+                         } else {
+                             model.style.display = "none";
+                         }
+                     } else {
+                         usercart.push(na);
+                         usercart.push(pri);
+                         usercart.push(cou);
+                         localStorage.setItem("mahmoud", JSON.stringify(usercart));
+                     }
+                 } else {
+                     tolocStor.push(na);
+                     tolocStor.push(pri);
+                     tolocStor.push(cou);
+                     localStorage.setItem("mahmoud", JSON.stringify(tolocStor));
+                 }
+
+                 
                  model.style.display = "none";
-                 Email.send({ 
-                    Host: "smtp.gmail.com", 
-                    Username: mail, 
-                    Password: pass, 
-                    To: 'momenalhendawy@gmail.com', 
-                    From: mail, 
-                    Subject: "Buy Request from "+name, 
-                    Body: "My Address is :"+Address+" , My Location :"+Loc+"  , My Mail :"+mail+
-                           " , My Phone Number : "+PhoneNumber+ " , My Order [ "+ordercontain+" ]" , 
-                  }) 
-                    .then(function (message) { 
-                      alert("mail sent successfully") 
-                    }); 
-             }else{
+
+                 /* var name = "Kareem";
+                  var mail = "MomenZakaria1997@gmail.com"
+                  var pass = "MOMEN@@2021"
+                  var Address = "Assuit";
+                  var PhoneNumber = "0100000000"
+                  var Loc = UserLocation;
+                  var ordercontain = "Name of Order :" + Order[buttonId].Name + " , price :" + Order[buttonId].Price + " , Count :" + parseInt(CountValue) + " , Total Price :" + Order[buttonId].Price * parseInt(CountValue);
+                  console.log(ordercontain);
+                  Email.send({
+                          Host: "smtp.gmail.com",
+                          Username: mail,
+                          Password: pass,
+                          To: 'momenalhendawy@gmail.com',
+                          From: mail,
+                          Subject: "Buy Request from " + name,
+                          Body: "My Address is :" + Address + " , My Location :" + Loc + "  , My Mail :" + mail +
+                              " , My Phone Number : " + PhoneNumber + " , My Order [ " + ordercontain + " ]",
+                      })
+                      .then(function (message) {
+                          alert("mail sent successfully")
+                      });*/
+
+             } else {
                  alert("MUST CHOOSE LOCATION")
              }
          } else {
