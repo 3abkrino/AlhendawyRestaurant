@@ -31,16 +31,22 @@ function check() {
 
     // stored data from the register-form
     var storedPw = JSON.parse(localStorage.getItem('key'));
+    
     var storedName = JSON.parse(localStorage.getItem('name'));
     // entered data from the login-form
     var userPw = document.getElementById('userPw');
     var userName = document.getElementById('userName');
     // check if stored data from register-form is equal to data from login form
     // if (storedPw.include(userPw,0) && storedName.include(userName,0))
-    if (userName.value == storedName.value && userPw.value == storedPw.value)
-    {
-        alert('You are loged in.');
-    } else {
-        alert('ERROR.');
+    for (let index = 0; index < storedName.length; index++) {
+        if (userName.value == storedName[index] && userPw.value == storedPw[index]) {
+            localStorage.setItem('loggedUser', storedName[index]);
+            alert('You are loged in.');
+            return;
+        } 
+
     }
+            
+            alert('ERROR.');
+        
 }
