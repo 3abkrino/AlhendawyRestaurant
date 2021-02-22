@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register form</title>
+        <link rel="stylesheet" href="form2.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="register-left">
+        
+                <h1>Join Us</h1>
+        
+            </div>
+        <form id="register-form" class="register-right"> 
+            <h2>Register Here</h2>
+            <div class="register-form"></div>
+            <label for="name1">Name:</label>
+            <input id="name1" type="text" placeholder="Mohamed Abdel Aziz" required value=""/>
+            <label for="pw">Password:</label>
+            <input id="pw" type="password" minlength="6" placeholder="Password" required value=""/>
+            <br>
+            <br>
+            
+            <div>
+                <label>Male
+                    <input type="radio" name="gender">
+                </label>
+                <label>Female
+                    <input type="radio" name="gender">
+                </label>
+                <label>other
+                    <input type="radio" name="gender">
+                </label>
+            </div>
+            <br>
+            <div>
+                <label>Email:
+                    <input type="email" placeholder="your email" required>
+                </label>
+            
+            </div>
+            <br>
+            <div>
+            
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday">
+            
+            </div>
+            <br>
+            <div>
+                I agree to the terms and conditions
+                <input type="checkbox" required>
+            </div>
+            <br>
+            <input id="rgstr_btn" class="btn" type="submit" value="submit" onClick="store()" />
+            </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" language="javascript" src="form.js"></script>
+
+    </body>
+</html>
