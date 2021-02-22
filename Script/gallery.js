@@ -231,6 +231,8 @@
                      user = localStorage.getItem("loggedUser");
                  }else{
                      localStorage.setItem("loggedUser",JSON.stringify(null));
+                     alert("PLEASE LOGIN FIREST")
+                     window.location.replace("./form3.html");
                  }
                                  
                  var usercart = JSON.parse(localStorage.getItem(user));
@@ -262,7 +264,7 @@
                      localStorage.setItem(user, JSON.stringify(tolocStor));
                  }
 
-                  window.location.replace("./form3.html");
+                  
                     model.style.display = "none";
 
                  /* var name = "Kareem";
