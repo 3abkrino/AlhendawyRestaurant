@@ -2,27 +2,54 @@
 // storing input from register-form
 function store() {
     // Password from the register - form
-    var new_key  = document.getElementById('pw').value;
+    var new_email = document.getElementById('email').value;
+    var new_name = document.getElementById('name1').value;
+    var new_key = document.getElementById('pw').value;
     //if localstorage is empty,save an empty array
     if (localStorage.getItem('key') == null) {
         localStorage.setItem('key', '[]')
     }
     //add new data to the old data
-    var old_key = JSON.parse(localStorage.getItem('key')); 
-     old_key.push(new_key);
-    //save data to local storage
-    localStorage.setItem('key', JSON.stringify(old_key));
-    
-    var new_name = document.getElementById('name1').value;
+    var old_key = JSON.parse(localStorage.getItem('key'));
+
+
     //if localstorage is empty,save an empty array
     if (localStorage.getItem('name') == null) {
         localStorage.setItem('name', '[]')
     }
     //add new data to the old data
     var old_name = JSON.parse(localStorage.getItem('name'));
+
+
+    //if localstorage is empty,save an empty array
+    if (localStorage.getItem('email') == null) {
+        localStorage.setItem('email', '[]')
+    }
+    //add new data to the old data
+    var old_email = JSON.parse(localStorage.getItem('email'));
+
+
+    // check for duplication
+    if (old_name != null) {
+        if (old_name != '[]') {
+
+            if (old_name.includes(new_name)) {
+                alert("user exist,please change username");
+                return;
+            }
+        }
+    }
+    old_key.push(new_key);
+    //save data to local storage
+    localStorage.setItem('key', JSON.stringify(old_key));
+
     old_name.push(new_name);
     //save data to local storage
     localStorage.setItem('name', JSON.stringify(old_name));
+
+    old_email.push(new_email);
+    //save data to local storage
+    localStorage.setItem('email', JSON.stringify(old_email));
 }
 
 
@@ -31,7 +58,7 @@ function check() {
 
     // stored data from the register-form
     var storedPw = JSON.parse(localStorage.getItem('key'));
-    
+
     var storedName = JSON.parse(localStorage.getItem('name'));
     // entered data from the login-form
     var userPw = document.getElementById('userPw');
@@ -43,10 +70,10 @@ function check() {
             localStorage.setItem('loggedUser', storedName[index]);
             alert('You are loged in.');
             return;
-        } 
-    }     
-     
-            localStorage.setItem('loggedUser', null);
-            alert('ERROR.');
-        
+        }
+    }
+
+    localStorage.setItem('loggedUser', null);
+    alert('ERROR.');
+
 }
