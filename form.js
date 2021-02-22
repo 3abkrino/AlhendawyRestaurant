@@ -44,7 +44,9 @@ function check() {
             alert('You are loged in.');
             return;
         } 
-
+         else {
+            localStorage.setItem('loggedUser', null);
+         }
     }
             
             alert('ERROR.');
