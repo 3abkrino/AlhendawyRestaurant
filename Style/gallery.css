@@ -132,7 +132,7 @@
   }
   /* The Close Button */
   #close {
-       
+       margin: 15px;
       font-size: 2rem;
       font-weight: bold;
       
@@ -191,8 +191,8 @@
       padding-left: 2rem;
       padding-bottom: 0.75rem;
       padding-right: 2rem;
-      border-radius: 5px;
-      background: #626485;
+      border-radius: 9px;
+      background: #363A7A;
       font-family: cursive;
   }
 
@@ -209,12 +209,6 @@
       color: #f1f3f4;
       font-family: cursive;
       margin-top: 5px;
-  }
-
-  #SendOrderPage_buy:active {
-      background: linear-gradient(#535EDC, #e66465);
-      position: relative;
-      top: 5px;
   }
 
   /*this for UserLocation  in Send order Page*/
@@ -259,7 +253,7 @@
       padding-bottom: 0.75rem;
       padding-right: 2rem;
       border-radius: 5px;
-      background: #626485;
+      background: #363A7A;
       font-family: cursive;
       margin-top: 10px;
   }

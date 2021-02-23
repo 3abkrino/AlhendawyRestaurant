@@ -235,6 +235,7 @@
 
   /* The Close Button */
   #close {
+      margin: 15px;
       align-self: flex-end;
       color: white;
       font-size: 2rem;
@@ -296,13 +297,11 @@
       padding-bottom: 0.75rem;
       padding-right: 2rem;
       border-radius: 5px;
-      background: #626485;
+      background: #363A7A;
       font-family: cursive;
   }
 
-  #SendOrderPageChoiseLoc:active {
-      transform: scale(0.95);
-  }
+
 
   #SendOrderPage_buy {
       border: none;
@@ -314,11 +313,6 @@
       font-family: cursive;
   }
 
-  #SendOrderPage_buy:active {
-      background: linear-gradient(#535EDC, #e66465);
-      position: relative;
-      top: 5px;
-  }
 
   /*this for UserLocation  in Send order Page*/
   #mapPage {
@@ -359,7 +353,7 @@
       padding-bottom: 0.75rem;
       padding-right: 2rem;
       border-radius: 5px;
-      background: #626485;
+      background: #363A7A;
       font-family: cursive;
       margin-top: 10px;
   }
