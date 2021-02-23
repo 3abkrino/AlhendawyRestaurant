@@ -13,16 +13,17 @@ window.addEventListener('load', function () {
         input.addEventListener('change', quantityChanged)
     }
 
-    var addToCartButtons = document.getElementsByClassName('shop-item-button')
-    for (var i = 0; i < addToCartButtons.length; i++) {
-        var button = addToCartButtons[i]
-        button.addEventListener('click', addToCartClicked)
-    }
+    // var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    // for (var i = 0; i < addToCartButtons.length; i++) {
+    //     var button = addToCartButtons[i]
+    //     button.addEventListener('click', addToCartClicked)
+    // }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
     var val = JSON.parse(localStorage.getItem(User))
     if( val!=null){
         retrivedatafromdatastorage();
+        updateCartTotal();
     }
 })
 
@@ -33,6 +34,10 @@ function purchaseClicked() {
         cartItems.removeChild(cartItems.firstChild)
     }
     updateCartTotal()
+    var val = JSON.parse(localStorage.getItem(User))
+    val.splice(0);
+    localStorage.setItem(User, JSON.stringify(val));
+
 }
 
 function removeCartItem(event) {
@@ -121,18 +126,18 @@ function updateCartTotal() {
 }
 
 function saveiteminstorage(title1, price1, quantity1) {
-    if (localStorage.getItem('loggedUser') == null) {
-        localStorage.setItem('loggedUser', '[]');
+    if (localStorage.getItem(User) == null) {
+        localStorage.setItem(User, '[]');
         alert('nullll')
     }
-    if (localStorage.getItem('loggedUser') != null) {
+    if (localStorage.getItem(User) != null) {
         //alert('not null')
-        var val = JSON.parse(localStorage.getItem('loggedUser'))
+        var val = JSON.parse(localStorage.getItem(User))
         
         for (let index = 0; index < val.length; index++) {
             if (title1 == val[index]) {
                 val[index + 2] = quantity1;
-                localStorage.setItem('loggedUser', JSON.stringify(val));
+                localStorage.setItem(User, JSON.stringify(val));
                 return
                 //alert('thisitem is duplicated');
             }
@@ -143,14 +148,14 @@ function saveiteminstorage(title1, price1, quantity1) {
         // localStorage.setItem(localStorage.getItem('loggedUser'),
         //  title1+" "+price1+" "+ quantity1);
         // localStorage.setItem("mahmoud", title+" "+price+" "+ input.value);
-        localStorage.setItem('loggedUser', JSON.stringify(val));
+        localStorage.setItem(User, JSON.stringify(val));
 
     } else {
         alert('please login first')//for development
     }
 }
 function removefromstorage(title) {
-    var val = JSON.parse(localStorage.getItem('loggedUser'))
+    var val = JSON.parse(localStorage.getItem(User))
     //alert(val)
     for (let index = 0; index < val.length; index++) {
         if (title == val[index]) {
@@ -159,7 +164,7 @@ function removefromstorage(title) {
 
     }
     //alert(val)
-    localStorage.setItem('loggedUser', JSON.stringify(val));
+    localStorage.setItem(User, JSON.stringify(val));
 }
 
 function retrivedatafromdatastorage() {
