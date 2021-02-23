@@ -18,7 +18,7 @@
     float: left;
     font:bold 400 Helvetica;
     color: #f9bd4f;
-    text-shadow:2px 2px 2px rgb(244, 247, 95),0 -1px 2px rgb(238, 231, 231);
+    text-shadow:2px 2px 2px rgb(244, 247, 95),2px 2px 8px #FF0000;
     padding: 10px 30px;
     margin: 5px;
     font-size: 1.2em;
@@ -29,6 +29,7 @@
     flex-direction: row;
     align-items: flex-end;
     float: right;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 .nav-item{ 
