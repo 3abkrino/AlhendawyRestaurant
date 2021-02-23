@@ -50,7 +50,7 @@ function store() {
     //save data to local storage
     localStorage.setItem('email', JSON.stringify(old_email));
     
-    window.location.replace("./form3.html");
+    window.location.replace("./login.html");
     return false ;
     
 }
@@ -82,5 +82,5 @@ function check() {
 
 }
 function Register(){
-    window.location.replace("./form2.html");
+    window.location.replace("./register.html");
 }
