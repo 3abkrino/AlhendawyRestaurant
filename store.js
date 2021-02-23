@@ -35,6 +35,11 @@ function purchaseClicked() {
     }
     updateCartTotal()
     var val = JSON.parse(localStorage.getItem(User))
+    var loc = JSON.parse(localStorage.getItem(User+"Location"))
+    loc=JSON.stringify(loc)
+    //alert(val)
+    //alert(loc)
+    sendmail(val,loc);
     val.splice(0);
     localStorage.setItem(User, JSON.stringify(val));
 
@@ -205,5 +210,12 @@ function retrivedatafromdatastorage() {
 
     // }
     
+
+}
+
+function sendmail(items,location){
+    window.location = "mailto:admin@gmail.com?body=  my items is " + items + " and my location is "+location+"&subject=This is message from : " + User ;
+
+
 
 }
