@@ -214,7 +214,7 @@ function retrivedatafromdatastorage() {
 }
 
 function sendmail(items,location){
-    window.location = "mailto:admin@gmail.com?body=  my items is " + items + " and my location is "+location+"&subject=This is message from : " + User ;
+    window.location = "mailto:admin@gmail.com?body=  my items is " + items + " and my location is "+location+"&subject=buy request from : " + User ;
 
 
 
