@@ -32,9 +32,8 @@ function store() {
     // check for duplication
     if (old_name != null) {
         if (old_name != '[]') {
-
             if (old_name.includes(new_name)) {
-                alert("user exist,please change username");
+                alert("user exist,please change username");  
                 return;
             }
         }
@@ -50,6 +49,10 @@ function store() {
     old_email.push(new_email);
     //save data to local storage
     localStorage.setItem('email', JSON.stringify(old_email));
+    
+    window.location.replace("./form3.html");
+    return false ;
+    
 }
 
 
@@ -69,11 +72,15 @@ function check() {
         if (userName.value == storedName[index] && userPw.value == storedPw[index]) {
             localStorage.setItem('loggedUser', storedName[index]);
             alert('You are loged in.');
-            return;
+            window.location.replace("./gallery.html");
+            return false;
         }
     }
 
     localStorage.setItem('loggedUser', null);
     alert('ERROR.');
 
+}
+function Register(){
+    window.location.replace("./form2.html");
 }

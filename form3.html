@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="Style/form2.css">
 </head>
 <body>
-    <div class="register-right">
+    <div class="register-right" onsubmit="return check()">
     <form id="login-form">
         <label for="userName">Name:</label>
         <input id="userName" type="text" placeholder="Enter Username" value="" />
@@ -17,12 +17,8 @@
         <label for="userpw">Password:</label>
         <input id="userPw" type="password" placeholder="Enter Password" value=""  required/>
         <br>
-
-        <label>Email:
-            <input id="email" type="email" placeholder="your email" required>
-        </label>
-        <br>
-        <input id="login_btn" class="btn" type="submit" value="Login" required onClick="check()" />
+        <input id="login_btn" class="btn" type="submit" value="Login" required/>
+         <input id="Register_btn" class="btn" type="button" value="Register Account"  onClick="Register()" />
     </form>
     </div>
     <script type="text/javascript" language="javascript" src="form.js"></script>

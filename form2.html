@@ -12,7 +12,7 @@
                 <h1>Join Us</h1>
         
             </div>
-        <form id="register-form" class="register-right"> 
+        <form id="register-form" class="register-right"  onsubmit="return store()"> 
             <h2>Register Here</h2>
             <div class="register-form"></div>
             <label for="name1">Name:</label>
@@ -53,9 +53,7 @@
                 <input type="checkbox" required>
             </div>
             <br>
-            <input id="rgstr_btn" class="btn" type="submit" value="submit" onClick="store()" />
-            </div>
-            </div>
+            <input id="rgstr_btn" class="btn" type="submit" value="submit" />
         </form>
     </div>
     <script type="text/javascript" language="javascript" src="form.js"></script>
