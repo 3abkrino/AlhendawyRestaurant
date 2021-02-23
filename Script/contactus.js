@@ -5,7 +5,7 @@ anchor.addEventListener('click', function (e) {
     //checking if the user inserted valid username or not
     if (!isUserNameValid()) {
         alert("please Enter valid user name");
-        // e.preventDefault();
+        e.preventDefault();
     } else if (!isUserEmailValid()) {
         alert("please Enter valid email");
         e.preventDefault();
@@ -18,7 +18,7 @@ function sendmail() {
     username = userData[0].value;
     useremail = userData[1].value;
     subject = userData[2].value;
-    anchor.href = "mailto:admin@gmail.com?subject= " + subject + "&body=This is message from : " + username + "";
+    anchor.href = "mailto:admin@gmail.com?body= " + subject + "&subject=This is message from : " + username + " and my e-mail is "+ useremail+"";
 };
 // Validate the username 
 function isUserNameValid() {
