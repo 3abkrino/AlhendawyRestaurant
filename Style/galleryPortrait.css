@@ -174,17 +174,17 @@
 
   /*This For Send Orde Page*/
   .SendOrderSection {
+       width: 100vw;
+      height: 100vh;
       display: none;
       position: fixed;
       z-index: 1;
-      padding-top: auto;
-     /* Location of the box*/ 
-      padding-left: auto;
       
+      padding-top: 10%;
+/*      Location of the box */
+      padding-left: 25%;
       left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
 
   }
@@ -196,8 +196,8 @@
       margin: 0;
       box-shadow: 0 50px 23px 15px rgba(0, 0, 0, 0.5);
       position: relative;
-      width: 50%;
-      height: 70%;
+     width: 60vw;
+      height: 70vh;
       animation-name: animatetop;
       animation-duration: 1s;
       border-radius: 20%;
@@ -217,7 +217,7 @@
   }
 
   .SendOrderPageHeader {
-      height: 20%;
+      height: 25%;
       padding-right: 10px;
       padding-left: 10px;
       background-color: #383D81;
@@ -227,9 +227,9 @@
   }
 
   #Company {
-      display: none ;
       font-family: cursive;
-      font-size: 1.5rem;
+      font-size: 1rem;
+      text-align: center ;
       margin: 0;
   }
 
@@ -278,10 +278,15 @@
   .SendOrderPagesalary {
       height: 10%;
   }
+.SendOrderPageCouLabel{
+        height: 10%;
+    margin: 0;
+}
 
   .SendOrderPageCounText {
       background: #D9DBFB;
       border-radius: 10%;
+      width: 50%;
   }
 
   #SendOrderPageChoiseLoc {
@@ -301,10 +306,9 @@
 
   #SendOrderPage_buy {
       border: none;
-      padding-top: 1rem;
-      padding-left: 4rem;
-      padding-bottom: 1rem;
-      padding-right: 4rem;
+      width: 30vw;
+      height: 10vh;
+      
       border-radius: 5px;
       background: linear-gradient(#e66465, #535EDC);
       font-family: cursive;
@@ -321,17 +325,14 @@
       display: none;
       position: fixed;
       z-index: 99;
-      padding-top: 120px;
-      /*Location of the box */
-      padding-left: 350px;
+      padding-top: 7%;
+      /*      Location of the box */
+      padding-left: 25%;
       left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
   }
-
-
-
   #mapContainer {
       background: #D9DBFB;
       margin: 0;

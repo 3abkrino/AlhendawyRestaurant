@@ -8,9 +8,29 @@
 
     <script src="Script/gallery.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
+
 </head>
 
 <body>
+    <!--this for create Menu in page header 
+    <header class="headerPage">
+        <div class="headerImage">
+            <div class="headerList">
+                <ul class="List">
+                    <li class="HeaderItem" id="CompanyName">ALHENDAWY RESTAURANT</li>
+                    <li class="HeaderItem">
+                        <a class="HeaderLink" href="RestaurantPlan.html">Home</a></li>
+                    <li class="HeaderItem"><a class="HeaderLink" href="gallery.html">Galley</a></li>
+                    <li class="HeaderItem"><a class="HeaderLink" href="contactus.html">Contact Us</a></li>
+                    <li class="HeaderItem"><a class="HeaderLink" href="about.html">About</a></li>
+                    <li class="HeaderItem">
+                        <i style="font-size:24px" class="fa">&#xf07a;</i>
+                        <a class="HeaderLink" href="cart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>-->
+    
      <!-- Header -->
       <header class="head">
           <!-- Navbar -->
@@ -29,6 +49,7 @@
                 <li class="nav-item"> <a href="cart.html"> Shopping Cart </a></li>
 
             </ul>
+            <h2 id="Company">ALHENDAWY RESTURENT</h2>
             <div class="clr"></div>
         </nav>
         <!-- Home img & paragraph -->
@@ -43,13 +64,22 @@
     
     <!--this for create Gallery product-->
     <section id="ViewAll">
+        <!--this Templet will created uesd Java Script so Gallery_Design just structure help me to know the steps that i will do -->
+        <!--<div class="Gallery_Design">
+            <div class="Gallery_Button">
+                <button class="viewbutton" value="button0">GET ORDER</button>
+            </div>
+            <span class="Gallery_Describe">chicken</span>
+        </div>-->
     </section>
+
+
+
     <!--this for open window when clicked on button GETORDER-->
     <section class="SendOrderSection" id="SendOrdermodel">
         <div class="SendOrderPage">
             <header class="SendOrderPageHeader">
                 <span id="close">&times;</span>
-                <h2 id="Company">ALHENDAWY RESTURENT</h2>
             </header>
             <div id="containertable">
                 <table id="tableStructurepage">
@@ -72,7 +102,7 @@
                         <td colspan="3" align="center"><input id="SendOrderPageChoiseLoc" type="button" value="Choise Location"></td>
                     </tr>
                     <tr>
-                        <td colspan="4" align="center"><input id="SendOrderPage_buy" type="button" value="BUY"></td>
+                        <td colspan="4" align="center"><input id="SendOrderPage_buy" type="button" value="ADD TO CART"></td>
                     </tr>
                 </table>
             </div>
