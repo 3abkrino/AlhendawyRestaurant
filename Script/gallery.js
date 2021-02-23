@@ -69,7 +69,7 @@
 
  function addItem() {
      for (var x = 0; x < Order.length; x++) {
-         console.log("Decribe = " + Order[x].Describe + " Image = " + Order[x].Image);
+         /*console.log("Decribe = " + Order[x].Describe + " Image = " + Order[x].Image);*/
          var GalleryDesign = document.createElement("div");
          GalleryDesign.classList.add("Gallery_Design");
          GalleryDesign.style.backgroundImage = "url(Images/" + Order[x].Image + ")";
@@ -99,15 +99,15 @@
  function ActionGetOrderButton(OrderButtonsArray) {
      for (var x = 0; x < OrderButtonsArray.length; x++) {
          OrderButtonsArray[x].addEventListener("click", function (obj) {
-             console.log(obj.target.value);
+//             console.log(obj.target.value);
              // this to show popup windwo
              model = document.getElementById("SendOrdermodel");
              model.style.display = "block";
              buttonId = obj.target.value.charAt(obj.target.value.length - 1);
-             console.log("ID " + buttonId);
+            /* console.log("ID " + buttonId);
              console.log(" Image" + Order[buttonId].Image);
              console.log(" Price" + Order[buttonId].Price);
-             console.log(" Desc" + Order[buttonId].Describe);
+             console.log(" Desc" + Order[buttonId].Describe);*/
 
              var img = Order[buttonId].Image;
              var pric = Order[buttonId].Price;
@@ -134,7 +134,7 @@
  }
 
  function ClosePage(clobutto) {
-     console.log("clobutto" + clobutto);
+//     console.log("clobutto" + clobutto);
      clobutto.addEventListener("click", function (obj) {
          model.style.display = "none";
      });
@@ -214,7 +214,6 @@
          UserLocation = event.latLng;
      });
  }
-
  function BuyOrder_SendMail(buy) {
      buy.addEventListener("click", function () {
          /*console.log("UserLocation "+UserLocation)*/
@@ -232,22 +231,22 @@
                  }else{
                      localStorage.setItem("loggedUser",JSON.stringify(null));
                      alert("PLEASE LOGIN FIREST")
-                     window.location.replace("./form3.html");
+                     window.location.replace("./login.html");
                  }
                                  
                  var usercart = JSON.parse(localStorage.getItem(user));
                  if (usercart) {
                      var exist = usercart.includes(Order[buttonId].Name)
-                     console.log("EXIST " + exist);
+                     /*console.log("EXIST " + exist);*/
                      if (exist) {
                          var stat = confirm("YOU WANT TO UPDATE ORDER");
                          if (stat) {
-                             console.log("cart " + usercart)
+                             /*console.log("cart " + usercart)*/
                              var itemName = usercart.indexOf(Order[buttonId].Name);
-                             console.log("index of " + Order[buttonId].Name + "=" + itemName)
+                     /*console.log("index of " + Order[buttonId].Name + "=" + itemName)*/
                              usercart[(parseInt(itemName) + 2)] = parseInt(CountValue);
                              localStorage.setItem(user, JSON.stringify(usercart))
-                             
+                     
                          } else {
                              model.style.display = "none";
                          }
@@ -256,38 +255,16 @@
                          usercart.push(pri);
                          usercart.push(cou);
                          localStorage.setItem(user, JSON.stringify(usercart));
+                         localStorage.setItem(user+"Location",JSON.stringify(UserLocation))
                      }
                  } else {
                      tolocStor.push(na);
                      tolocStor.push(pri);
                      tolocStor.push(cou);
                      localStorage.setItem(user, JSON.stringify(tolocStor));
-                 }
-
-                  
+                     localStorage.setItem(user+"Location",JSON.stringify(UserLocation))
+                 }     
                     model.style.display = "none";
-
-                 /* var name = "Kareem";
-                  var mail = "MomenZakaria1997@gmail.com"
-                  var pass = "MOMEN@@2021"
-                  var Address = "Assuit";
-                  var PhoneNumber = "0100000000"
-                  var Loc = UserLocation;
-                  var ordercontain = "Name of Order :" + Order[buttonId].Name + " , price :" + Order[buttonId].Price + " , Count :" + parseInt(CountValue) + " , Total Price :" + Order[buttonId].Price * parseInt(CountValue);
-                  console.log(ordercontain);
-                  Email.send({
-                          Host: "smtp.gmail.com",
-                          Username: mail,
-                          Password: pass,
-                          To: 'momenalhendawy@gmail.com',
-                          From: mail,
-                          Subject: "Buy Request from " + name,
-                          Body: "My Address is :" + Address + " , My Location :" + Loc + "  , My Mail :" + mail +
-                              " , My Phone Number : " + PhoneNumber + " , My Order [ " + ordercontain + " ]",
-                      })
-                      .then(function (message) {
-                          alert("mail sent successfully")
-                      });*/
 
              } else {
                  alert("MUST CHOOSE LOCATION")

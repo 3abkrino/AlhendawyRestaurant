@@ -1,16 +1,20 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="Style/gallery.css">
+    <link rel="stylesheet" href="Style/gallery.css">    
+    <link href="Style/galleryPortrait.css" rel="stylesheet" media="(orientation:portrait)"/>
+    <link rel="stylesheet" href="Style/styleindex.css">
+    
+    
     <script src="Script/gallery.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!--<script src="https://smtpjs.com/v3/smtp.js"></script>-->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <!--this for create Menu in page header -->
+    <!--this for create Menu in page header 
     <header class="headerPage">
         <div class="headerImage">
             <div class="headerList">
@@ -27,7 +31,34 @@
                 </ul>
             </div>
         </div>
-    </header>
+    </header>-->
+    
+     <!-- Header -->
+      <header class="head">
+          <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-logo">
+                logo
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item"> <a href="gallery.html"> Menu </a></li>
+                <li class="nav-item"> <a href="about.html"> About </a></li>
+                <li class="nav-item"> <a href="contactus.html"> Contact us </a></li>
+                <li class="nav-item "> <a href="register.html"> Register </a></li>
+                <li class="nav-item"> <a href="login.html"> Login </a></li>
+            </ul>
+            <div class="clr"></div>
+        </nav>
+        <!-- Home img & paragraph -->
+        <div class="bg-header">
+            <div class="bg-overlay">
+                <div class="bg-data">
+                    <h1>Our special plates</h1>
+                </div>
+            </div>         
+        </div>
+      </header>
+    
     <!--this for create Gallery product-->
     <section id="ViewAll">
         <!--this Templet will created uesd Java Script so Gallery_Design just structure help me to know the steps that i will do -->

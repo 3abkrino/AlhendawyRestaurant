@@ -1,4 +1,6 @@
-  *{
+  
+
+*{
       padding: 0;
       margin: 15;
       box-sizing: border-box;
@@ -7,12 +9,11 @@
 
   #ViewAll {
       display: flex;
-      display: grid;
-      grid-template-columns: auto auto auto auto;
+      flex-direction: column ;
   }
 
   .Gallery_Design {
-      width: 20vw;
+      width: 70vw;
       height: 50vh;
       background-position: center;
       background-size: cover;
@@ -104,43 +105,41 @@
       }
   }
 
-  .headerPage {
+.headerPage {
 
       display: flex;
+      flex-direction: column ;
       align-items: center;
       justify-content: center;
   }
 
   .headerImage {
-      width: 93vw;
-      height: 70vh;
+      width: 70vw;
+      height: 50vh;
       background-position: center;
       background-size: cover;
-      /*animation: ChanagHeaderImg;
+      animation: ChanagHeaderImg;
       animation-duration: 13s;
       animation-iteration-count: infinite;
-      animation-direction: alternate;*/
+      animation-direction: alternate;
       border-radius: 2%;
   }
 
   .headerList {
-      width: 95%;
-      height: 15%;
+      width: 20%;
+      height: 80%;
       color: white;
-      margin-top: 50px;
       margin-left: 2.5%;
 
   }
 
-
-
-  .List {
+  .List {      
       width: 100%;
       height: 100%;
       display: flex;
+      flex-direction: column ;
       justify-content: space-around;
       background-color: rgba(0, 0, 0, 0.7);
-      border: 2px solid white;
   }
 
   .HeaderItem {
@@ -165,11 +164,11 @@
   }
 
   #CompanyName {
+      display: none ;
       width: 40%;
       text-align: left;
       font-family: cursive;
       font-size: 2rem;
-      border: 2px solid white;
   }
 
 
@@ -178,10 +177,10 @@
       display: none;
       position: fixed;
       z-index: 1;
-     /* padding-top: 120px;
-      Location of the box 
-      padding-left: 350px;*/
-      padding: auto auto ;
+      padding-top: auto;
+     /* Location of the box*/ 
+      padding-left: auto;
+      
       left: 0;
       top: 0;
       width: 100%;
@@ -228,6 +227,7 @@
   }
 
   #Company {
+      display: none ;
       font-family: cursive;
       font-size: 1.5rem;
       margin: 0;
@@ -337,8 +337,8 @@
       margin: 0;
       box-shadow: 0 50px 23px 15px rgba(0, 0, 0, 0.5);
       position: relative;
-      width: 400px;
-      height: 350px;
+      width: 50%;
+      height: 70%;
       border: 2px solid black;
       display: flex;
       flex-direction: column;
